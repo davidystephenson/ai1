@@ -7,28 +7,43 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- TODO: Add sidebar with navigation links -->
+  <header class="header">
+    <h1>ProConnect</h1>
 
-  <div class="main-content">
-    <header class="header">
-      <h1>ProConnect</h1>
+    <div class="controls">
+      <select id="filterRole">
+        <option value="all">All Roles</option>
+        <option value="Engineer">Engineer</option>
+        <option value="Designer">Designer</option>
+        <option value="Manager">Manager</option>
+      </select>
 
-      <div class="controls">
-        <select id="filterRole">
-          <option value="all">All Roles</option>
-          <option value="Engineer">Engineer</option>
-          <option value="Designer">Designer</option>
-          <option value="Manager">Manager</option>
-        </select>
+      <select id="sortPosts">
+        <option value="recent">Most Recent</option>
+        <option value="likes">Most Liked</option>
+      </select>
+    </div>
+  </header>
 
-        <select id="sortPosts">
-          <option value="recent">Most Recent</option>
-          <option value="likes">Most Liked</option>
-        </select>
-      </div>
-    </header>
+  <div class="content-wrapper">
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-link active">
+          <span class="nav-icon">🏠</span>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon">👤</span>
+          <span>Profile</span>
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </aside>
 
-    <main>
+    <main class="main-content">
       <section id="feed" class="feed"></section>
     </main>
   </div>
