@@ -95,7 +95,27 @@ function renderFeed(list) {
 
 // Like button logic
 feed.addEventListener("click", event => {
-  // TODO: Implement like button click handler
+  if (event.target.tagName === "BUTTON" && event.target.dataset.id) {
+    const postId = parseInt(event.target.dataset.id);
+    const post = posts.find(p => p.id === postId);
+    const userActions = getUserActions();
+
+    if (!userActions[postId]) {
+      userActions[postId] = {};
+    }
+
+    if (userActions[postId].liked) {
+      userActions[postId].liked = false;
+      post.likes--;
+    } else {
+      userActions[postId].liked = true;
+      post.likes++;
+    }
+
+    setUserActions(userActions);
+    saveLikes();
+    applyFilterAndSort();
+  }
 });
 
 function applySorting(list, sortBy) {
